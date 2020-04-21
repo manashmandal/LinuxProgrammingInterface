@@ -1,23 +1,21 @@
+#include "../tlpi_hdr.h";
 #include <stdio.h>
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
-#include "lib/tlpi_hdr.h"
 
 #ifndef BUF_SIZE
 #define BUF_SIZE 1024
 #endif
 #define MAX_READ 512
 
-int main(int argc, char* argv[])
-{
+int readUsingSeek(char *filepath, off_t seek){
     char buffer[BUF_SIZE];
     int openFd;
     off_t curr;
     ssize_t numRead;
-    char *filepath = "/home/manash/test.txt";
     openFd = open(filepath, O_RDONLY);
-    curr = lseek(openFd, 0, SEEK_SET);
+    curr = lseek(openFd, seek, SEEK_CUR);
     if (openFd == -1){
         errExit("open");
     }

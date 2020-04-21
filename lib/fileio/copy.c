@@ -9,7 +9,7 @@
 #define BUF_SIZE 1024
 #endif
 
-int main(int argc, char* argv[])
+int copyFile(int argc, char* argv[])
 {
     int inputFd, outputFd, openFlags;
     mode_t filePerms;

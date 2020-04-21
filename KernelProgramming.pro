@@ -6,6 +6,7 @@ CONFIG -= qt
 SOURCES += \
         lib/error_functions.c \
         lib/fileio/copy.c \
+        lib/fileio/read_from_anywhere.c \
         lib/get_num.c \
         main.c
 
