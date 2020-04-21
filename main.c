@@ -15,9 +15,8 @@ int main(int argc, char *argv[]) {
   char buff[BUF_SIZE];
   int fd;
   ssize_t numRead;
-  ssize_t numWritten;
 
-  fd = open(testfilepath, O_RDWR);
+  fd = open(testfilepath, O_RDWR | O_TRUNC);
 
   if (fd == -1) {
     errMsg("open");
@@ -28,8 +27,7 @@ int main(int argc, char *argv[]) {
       errMsg("read");
     }
     buff[numRead] = '\0';
-    numWritten = write(fd, buff, numRead);
-    if (numWritten == -1) {
+    if (write(fd, buff, numRead) == -1) {
       errMsg("write");
     }
     printf("%s", buff);
