@@ -15,7 +15,7 @@
 
 #define TEST_FILEPATH "/home/manash/testcpy/helloworld.txt"
 
-int main(int argc, char *argv[]) {
+int bad_exclusive_open(int argc, char *argv[]) {
   int fd;
   fd = open(TEST_FILEPATH, O_WRONLY);
   if (fd != -1) {

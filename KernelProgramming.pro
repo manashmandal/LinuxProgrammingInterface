@@ -5,6 +5,7 @@ CONFIG -= qt
 
 SOURCES += \
         lib/error_functions.c \
+        lib/fileio/bad_exclusive_open.c \
         lib/fileio/copy.c \
         lib/fileio/read_from_anywhere.c \
         lib/fileio/seek_io.c \
