@@ -8,6 +8,7 @@ SOURCES += \
         lib/fileio/copy.c \
         lib/fileio/read_from_anywhere.c \
         lib/fileio/seek_io.c \
+        lib/fileio/sparse_copy.c \
         lib/fileio/tee.c \
         lib/get_num.c \
         main.c
