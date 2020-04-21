@@ -1,3 +1,5 @@
+// Solution to exercise-4.1
+
 #include "lib/tlpi_hdr.h"
 #include <ctype.h>
 #include <fcntl.h>
@@ -12,7 +14,7 @@
 #define MAX_READ 512
 #define MAX_WRITE 512
 
-int main(int argc, char *argv[]) {
+int tee(int argc, char *argv[]) {
   Boolean append;
   char *cvalue = NULL;
   int c;
