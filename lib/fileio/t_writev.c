@@ -16,16 +16,16 @@
 
 #define TEST_FILEPATH "/home/manash/testcpy/helloworld.txt"
 
-int main(int argc, char *argv[]) {
+int t_writev(int argc, char *argv[]) {
   int fd;
   struct iovec iov[2];
   struct stat myStruct;
   int x;
 #define STR_SIZE 12
   char str[STR_SIZE];
-  ssize_t numRead, totRequired;
+  ssize_t numWrite, totRequired;
 
-  fd = open(TEST_FILEPATH, O_RDONLY);
+  fd = open(TEST_FILEPATH, O_WRONLY | O_TRUNC, S_IREAD | S_IWRITE);
   if (fd == -1) {
     errExit("open");
   }
@@ -44,17 +44,16 @@ int main(int argc, char *argv[]) {
   iov[1].iov_len = STR_SIZE;
   totRequired += iov[1].iov_len;
 
-  numRead = readv(fd, iov, 3);
-  if (numRead == -1) {
-    errExit("readv");
+  numWrite = readv(fd, iov, 3);
+  if (numWrite == -1) {
+    errExit("writev");
   }
 
-  if (numRead < totRequired) {
+  if (numWrite < totRequired) {
     printf("Read fewer bytes than requested\n");
   }
 
-  printf("total bytes requested: %ld; bytes read: %d\n", (long)totRequired,
-         (long)numRead);
-  printf("%s\n", str);
+  printf("total bytes requested: %ld; bytes wrote: %d\n", (long)totRequired,
+         (long)numWrite);
   exit(EXIT_SUCCESS);
 }

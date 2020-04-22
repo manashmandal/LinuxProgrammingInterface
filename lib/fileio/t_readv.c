@@ -16,7 +16,7 @@
 
 #define TEST_FILEPATH "/home/manash/testcpy/helloworld.txt"
 
-int main(int argc, char *argv[]) {
+int t_readv(int argc, char *argv[]) {
   int fd;
   struct iovec iov[2];
   struct stat myStruct;
