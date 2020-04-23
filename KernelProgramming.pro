@@ -14,6 +14,7 @@ SOURCES += \
         lib/fileio/t_readv.c \
         lib/fileio/t_writev.c \
         lib/fileio/tee.c \
+        lib/fileio/test_o_append.c \
         lib/get_num.c \
         main.c
 
